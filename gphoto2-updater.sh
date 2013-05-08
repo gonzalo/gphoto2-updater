@@ -8,7 +8,8 @@
 
 # Created and mantained by Gonzalo Cao Cabeza de Vaca
 # Please send any feedback or comments to gonzalo.cao(at)gmail.com
-# Updated for Gphoto2 2.5.1.1 by Peter Hinson
+# Updated for gPhoto2 2.5.1.1 by Peter Hinson
+# Updated for gPhoto2 2.5.2 by Dmitri Popov
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -89,13 +90,13 @@ echo "Downloading libusb 1.0.11"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.1.1/libgphoto2-2.5.1.1.tar.bz2
-tar xjf libgphoto2-2.5.1.1.tar.bz2
-cd libgphoto2-2.5.1.1
+wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.2/libgphoto2-2.5.2.tar.bz2
+tar xjf libgphoto2-2.5.2.tar.bz2
+cd libgphoto2-2.5.2
 
 echo 
 echo "-----------------------------------"
-echo "Compiling and installing libgphoto2 2.5.1.1"
+echo "Compiling and installing libgphoto2 2.5.2"
 echo "-----------------------------------"
 echo
 
@@ -110,9 +111,9 @@ echo "Downloading gphoto2 2.5.1"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.1/gphoto2-2.5.1.tar.gz
-tar xzvf gphoto2-2.5.1.tar.gz
-cd gphoto2-2.5.1
+wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.2/gphoto2-2.5.2.tar.gz
+tar xzvf gphoto2-2.5.2.tar.gz
+cd gphoto2-2.5.2
 
 echo 
 echo "--------------------------------"
