@@ -134,6 +134,14 @@ echo
 
 ldconfig
 
+echo
+echo "-----------------------------------------------------------------------------------------------"
+echo "Setting up permissions for USB ports, see http://www.gphoto.org/doc/manual/permissions-usb.html"
+echo "-----------------------------------------------------------------------------------------------"
+echo
+/usr/local/lib/libgphoto2/print-camera-list udev-rules version 0.98 group plugdev mode 0660 > /etc/udev/rules.d/90-libgphoto2.rules
+
+
 echo 
 echo "-------------------"
 echo "Removing temp files"
