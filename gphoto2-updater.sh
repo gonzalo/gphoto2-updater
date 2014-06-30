@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.1.1 compiler and installer script v0.2
+# Gphoto2 2.5.4 compiler and installer script v0.3
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -85,19 +85,19 @@ cd ..
 
 
 echo 
-echo "-------------------------"
-echo "Downloading libusb 1.0.11"
-echo "-------------------------"
+echo "----------------------------"
+echo "Downloading libgphoto2 2.5.4"
+echo "----------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.2/libgphoto2-2.5.2.tar.bz2
-tar xjf libgphoto2-2.5.2.tar.bz2
-cd libgphoto2-2.5.2
+wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.4/libgphoto2-2.5.4.tar.bz2
+tar xjf libgphoto2-2.5.4.tar.bz2
+cd libgphoto2-2.5.4
 
 echo 
-echo "-----------------------------------"
-echo "Compiling and installing libgphoto2 2.5.2"
-echo "-----------------------------------"
+echo "-----------------------------------------"
+echo "Compiling and installing libgphoto2 2.5.4
+echo "-----------------------------------------"
 echo
 
 ./configure
@@ -107,13 +107,13 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.1"
+echo "Downloading gphoto2 2.5.4"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.2/gphoto2-2.5.2.tar.gz
-tar xzvf gphoto2-2.5.2.tar.gz
-cd gphoto2-2.5.2
+wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.4/gphoto2-2.5.4.tar.gz
+tar xzvf gphoto2-2.5.4.tar.gz
+cd gphoto2-2.5.4
 
 echo 
 echo "--------------------------------"
