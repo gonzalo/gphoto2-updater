@@ -96,7 +96,7 @@ cd libgphoto2-2.5.4
 
 echo 
 echo "-----------------------------------------"
-echo "Compiling and installing libgphoto2 2.5.4
+echo "Compiling and installing libgphoto2 2.5.4"
 echo "-----------------------------------------"
 echo
 
