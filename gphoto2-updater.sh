@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.4 compiler and installer script v0.3
+# Gphoto2 2.5.4 compiler and installer script v0.3.1
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -63,19 +63,28 @@ echo
 mkdir gphoto2-temp-folder
 cd gphoto2-temp-folder
 
+echo "gphoto2-temp-folder created"
+
+
 echo 
 echo "-------------------------"
-echo "Downloading libusb 1.0.11"
+echo "Downloading libusb 1.0.17"
 echo "-------------------------"
 echo
 
-wget http://ftp.de.debian.org/debian/pool/main/libu/libusbx/libusbx_1.0.11.orig.tar.bz2
-tar xjvf libusbx_1.0.11.orig.tar.bz2
-cd libusbx-1.0.11/
+if wget -q http://ftp.de.debian.org/debian/pool/main/libu/libusbx/libusbx_1.0.17.orig.tar.bz2
+	then
+		tar xjvf libusbx_1.0.17.orig.tar.bz2
+		cd libusbx-1.0.17/
+	else
+		echo "Unable to get libusbx_1.0.17"
+		echo "Cleaning and exiting..."
+		exit 1
+fi
 
 echo 
 echo "--------------------------------------"
-echo "Compiling and installing libusb 1.0.11"
+echo "Compiling and installing libusb 1.0.17"
 echo "--------------------------------------"
 
 ./configure
@@ -90,9 +99,16 @@ echo "Downloading libgphoto2 2.5.4"
 echo "----------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.4/libgphoto2-2.5.4.tar.bz2
-tar xjf libgphoto2-2.5.4.tar.bz2
-cd libgphoto2-2.5.4
+if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.4/libgphoto2-2.5.4.tar.bz2
+	then
+		tar xjf libgphoto2-2.5.4.tar.bz2
+		cd libgphoto2-2.5.4
+	else
+		echo "Unable to get libgphoto2-2.5.4"
+		echo "Cleaning and exiting..."
+		exit 1
+fi
+
 
 echo 
 echo "-----------------------------------------"
@@ -111,9 +127,16 @@ echo "Downloading gphoto2 2.5.4"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.4/gphoto2-2.5.4.tar.gz
-tar xzvf gphoto2-2.5.4.tar.gz
-cd gphoto2-2.5.4
+if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.4/gphoto2-2.5.4.tar.gz
+	then
+		tar xzvf gphoto2-2.5.4.tar.gz
+		cd gphoto2-2.5.4
+	else
+		echo "Unable to get gphoto2-2.5.4"
+		echo "Cleaning and exiting..."
+		exit 1
+fi
+
 
 echo 
 echo "--------------------------------"
@@ -160,3 +183,4 @@ echo "--------------------"
 echo
 
 gphoto2 --version
+
