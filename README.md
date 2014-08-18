@@ -14,10 +14,11 @@ Please send any feedback or comments to gonzalo.cao(at)gmail.com
 
 How-to use
 ==========
-Just be sure you are connected to the Internet and run it as
+Just be sure you are connected to the Internet and run it as:
 
-$sudo gphoto2-updater.sh
-
+```
+$ sudo ./gphoto2-updater.sh
+```
 
 LICENSE AND DISCLAIMER
 ======================
