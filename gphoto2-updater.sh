@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.4 compiler and installer script v0.3.1
+# Gphoto2 2.5.5 compiler and installer script v0.3.1
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -95,16 +95,16 @@ cd ..
 
 echo 
 echo "----------------------------"
-echo "Downloading libgphoto2 2.5.4"
+echo "Downloading libgphoto2 2.5.5"
 echo "----------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.4/libgphoto2-2.5.4.tar.bz2
+if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.5/libgphoto2-2.5.5.tar.bz2
 	then
-		tar xjf libgphoto2-2.5.4.tar.bz2
-		cd libgphoto2-2.5.4
+		tar xjf libgphoto2-2.5.5.tar.bz2
+		cd libgphoto2-2.5.5
 	else
-		echo "Unable to get libgphoto2-2.5.4"
+		echo "Unable to get libgphoto2-2.5.5"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
@@ -112,7 +112,7 @@ fi
 
 echo 
 echo "-----------------------------------------"
-echo "Compiling and installing libgphoto2 2.5.4"
+echo "Compiling and installing libgphoto2 2.5.5"
 echo "-----------------------------------------"
 echo
 
@@ -123,16 +123,16 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.4"
+echo "Downloading gphoto2 2.5.5"
 echo "-------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.4/gphoto2-2.5.4.tar.gz
+if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.5/gphoto2-2.5.5.tar.gz
 	then
-		tar xzvf gphoto2-2.5.4.tar.gz
-		cd gphoto2-2.5.4
+		tar xzvf gphoto2-2.5.5.tar.gz
+		cd gphoto2-2.5.5
 	else
-		echo "Unable to get gphoto2-2.5.4"
+		echo "Unable to get gphoto2-2.5.5"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
