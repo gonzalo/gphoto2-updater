@@ -10,6 +10,7 @@
 # Please send any feedback or comments to gonzalo.cao(at)gmail.com
 # Updated for gPhoto2 2.5.1.1 by Peter Hinson
 # Updated for gPhoto2 2.5.2 by Dmitri Popov
+# Updated for gphoto2 2.5.5 by Mihai Doarna
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,7 +53,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev
+apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
 
 echo 
 echo "-------------------------"
