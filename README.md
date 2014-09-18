@@ -17,6 +17,7 @@ How-to use
 Just be sure you are connected to the Internet and run it as:
 
 ```
+$ chmod +x gphoto2-updater.sh
 $ sudo ./gphoto2-updater.sh
 ```
 
