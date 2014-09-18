@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.5 compiler and installer script v0.3.1
+# Gphoto2 2.5.5 compiler and installer script v0.4.1
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -159,11 +159,37 @@ echo
 ldconfig
 
 echo
-echo "-----------------------------------------------------------------------------------------------"
-echo "Setting up permissions for USB ports, see http://www.gphoto.org/doc/manual/permissions-usb.html"
-echo "-----------------------------------------------------------------------------------------------"
+echo "---------------------------------------------------------------------------------"
+echo "Generating udev rules, see http://www.gphoto.org/doc/manual/permissions-usb.html"
+echo "---------------------------------------------------------------------------------"
 echo
-/usr/local/lib/libgphoto2/print-camera-list udev-rules version 0.98 group plugdev mode 0660 > /etc/udev/rules.d/90-libgphoto2.rules
+
+udev_version=$(udevd --version)
+
+if   [ "$udev_version" -ge "201" ]
+then
+  udev_rules=201
+elif [ "$udev_version" -ge "175" ]
+then
+  udev_rules=175
+elif [ "$udev_version" -ge "136" ]
+then
+  udev_rules=136
+else
+  udev_rules=0.98
+fi
+
+/usr/local/lib/libgphoto2/print-camera-list udev-rules version $udev_rules group plugdev mode 0660 > /etc/udev/rules.d/90-libgphoto2.rules
+
+if   [ "$udev_rules" = "201" ]
+then
+  echo
+  echo "------------------------------------------------------------------------"
+  echo "Generating hwdb file in /etc/udev/hwdb.d/20-gphoto.hwdb. Ignore the NOTE"
+  echo "------------------------------------------------------------------------"
+  echo
+  /usr/local/lib/libgphoto2/print-camera-list hwdb > /etc/udev/hwdb.d/20-gphoto.hwdb
+fi
 
 
 echo 
