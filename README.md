@@ -1,7 +1,7 @@
 gphoto2-updater
 ===============
 
-Gphoto2 2.5.5 compiler and installer script v0.4.1
+Gphoto2 2.5.6 compiler and installer script v0.4.1
 http://github.com/gonzalo/gphoto2-updater
 
 This script is specifically created for Raspbian http://www.raspbian.org
