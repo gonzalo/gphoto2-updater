@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.6 compiler and installer script v0.4.1
+# Gphoto2 2.5.7 compiler and installer script v0.4.1
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -12,6 +12,7 @@
 # Updated for gPhoto2 2.5.2 by Dmitri Popov
 # Updated for gphoto2 2.5.5 by Mihai Doarna
 # Updated for gphoto2 2.5.6 by Mathias Peter
+# Updated for gphoto2 2.5.7 by Sijawusz Pur Rahnama
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -97,16 +98,16 @@ cd ..
 
 echo 
 echo "----------------------------"
-echo "Downloading libgphoto2 2.5.6"
+echo "Downloading libgphoto2 2.5.7"
 echo "----------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.6/libgphoto2-2.5.6.tar.bz2
+if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.7/libgphoto2-2.5.7.tar.bz2
 	then
-		tar xjf libgphoto2-2.5.6.tar.bz2
-		cd libgphoto2-2.5.6
+		tar xjf libgphoto2-2.5.7.tar.bz2
+		cd libgphoto2-2.5.7
 	else
-		echo "Unable to get libgphoto2-2.5.6"
+		echo "Unable to get libgphoto2-2.5.7"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
@@ -114,7 +115,7 @@ fi
 
 echo 
 echo "-----------------------------------------"
-echo "Compiling and installing libgphoto2 2.5.6"
+echo "Compiling and installing libgphoto2 2.5.7"
 echo "-----------------------------------------"
 echo
 
@@ -125,16 +126,16 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.6"
+echo "Downloading gphoto2 2.5.7"
 echo "-------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.6/gphoto2-2.5.6.tar.gz
+if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.7/gphoto2-2.5.7.tar.gz
 	then
-		tar xzvf gphoto2-2.5.6.tar.gz
-		cd gphoto2-2.5.6
+		tar xzvf gphoto2-2.5.7.tar.gz
+		cd gphoto2-2.5.7
 	else
-		echo "Unable to get gphoto2-2.5.6"
+		echo "Unable to get gphoto2-2.5.7"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
