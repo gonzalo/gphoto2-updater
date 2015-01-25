@@ -126,16 +126,16 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.7"
+echo "Downloading gphoto2 2.5.6"
 echo "-------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.7/gphoto2-2.5.7.tar.gz
+if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.6/gphoto2-2.5.6.tar.gz
 	then
-		tar xzvf gphoto2-2.5.7.tar.gz
-		cd gphoto2-2.5.7
+		tar xzvf gphoto2-2.5.6.tar.gz
+		cd gphoto2-2.5.6
 	else
-		echo "Unable to get gphoto2-2.5.7"
+		echo "Unable to get gphoto2-2.5.6"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
