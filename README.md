@@ -21,7 +21,7 @@ To download and compile last script version just be sure you are connected to th
 ```
 $ wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && sudo ./gphoto2-updater.sh
 ```
-Since 2.5.5 version you can pick an specific libgphoto version selectin and specific release:
+Since 2.5.5 version you can pick an specific libgphoto version:
 
 
 ```
