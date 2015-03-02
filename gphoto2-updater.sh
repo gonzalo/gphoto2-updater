@@ -10,6 +10,7 @@
 # Please send any feedback or comments to gonzalo.cao(at)gmail.com
 # Updated for gPhoto2 2.5.1.1 by Peter Hinson
 # Updated for gPhoto2 2.5.2 by Dmitri Popov
+## Updated for gPhoto2 2.5.7 by Dmitri Popov
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,7 +53,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev
+apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
 
 echo 
 echo "-------------------------"
@@ -65,17 +66,17 @@ cd gphoto2-temp-folder
 
 echo 
 echo "-------------------------"
-echo "Downloading libusb 1.0.11"
+echo "Downloading libusb 1.0.17"
 echo "-------------------------"
 echo
 
-wget http://ftp.de.debian.org/debian/pool/main/libu/libusbx/libusbx_1.0.11.orig.tar.bz2
-tar xjvf libusbx_1.0.11.orig.tar.bz2
-cd libusbx-1.0.11/
+wget http://ftp.de.debian.org/debian/pool/main/libu/libusbx/libusbx_1.0.17.orig.tar.bz2
+tar xjvf libusbx_1.0.17.orig.tar.bz2
+cd libusbx-1.0.17/
 
 echo 
 echo "--------------------------------------"
-echo "Compiling and installing libusb 1.0.11"
+echo "Compiling and installing libusb 1.0.17"
 echo "--------------------------------------"
 
 ./configure
@@ -86,17 +87,17 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading libusb 1.0.11"
+echo "Downloading libgphoto2 2.5.7"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.2/libgphoto2-2.5.2.tar.bz2
-tar xjf libgphoto2-2.5.2.tar.bz2
-cd libgphoto2-2.5.2
+wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.7/libgphoto2-2.5.7.tar.bz2
+tar xjf libgphoto2-2.5.7.tar.bz2
+cd libgphoto2-2.5.7
 
 echo 
 echo "-----------------------------------"
-echo "Compiling and installing libgphoto2 2.5.2"
+echo "Compiling and installing libgphoto2 2.5.7"
 echo "-----------------------------------"
 echo
 
@@ -107,13 +108,13 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.1"
+echo "Downloading gphoto2 2.5.6"
 echo "-------------------------"
 echo
 
-wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.2/gphoto2-2.5.2.tar.gz
-tar xzvf gphoto2-2.5.2.tar.gz
-cd gphoto2-2.5.2
+wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.6/gphoto2-2.5.6.tar.gz
+tar xzvf gphoto2-2.5.6.tar.gz
+cd gphoto2-2.5.6
 
 echo 
 echo "--------------------------------"
