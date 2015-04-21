@@ -71,7 +71,7 @@ echo "gphoto2-temp-folder created"
 
 echo 
 echo "-------------------------"
-echo "Downloading libusb 1.0.17"
+echo "Downloading libusb 1.0.18"
 echo "-------------------------"
 echo
 
