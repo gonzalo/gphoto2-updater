@@ -55,7 +55,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
+apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev make bzip2
 
 echo 
 echo "-------------------------"
