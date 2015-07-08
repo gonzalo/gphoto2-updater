@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.7 compiler and installer script v0.4.1
+# Gphoto2 2.5.8 compiler and installer script v0.4.1
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -75,9 +75,9 @@ echo "Downloading libusb 1.0.18"
 echo "-------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/libusbx/releases/1.0.18/source/libusbx-1.0.18.tar.bz2
+if (wget -q http://downloads.sourceforge.net/project/libusbx/releases/1.0.18/source/libusbx-1.0.18.tar.bz2) && [ "`sha256sum libusbx-1.0.18.tar.bz2 | awk '{print$1;}'`" = 'e16d1b10de69ddd0dcec31b8041b9b3ba4640d530e4851cc83268253b27d1ffb' ]
 	then
-		tar xjvf libusbx_1.0.18.orig.tar.bz2
+		tar xjvf libusbx-1.0.18.tar.bz2
 		cd libusbx-1.0.18/
 	else
 		echo "Unable to get libusbx_1.0.18"
@@ -98,16 +98,16 @@ cd ..
 
 echo 
 echo "----------------------------"
-echo "Downloading libgphoto2 2.5.7"
+echo "Downloading libgphoto2 2.5.8"
 echo "----------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.7/libgphoto2-2.5.7.tar.bz2
+if (wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.8/libgphoto2-2.5.8.tar.bz2) && [ "`sha256sum libgphoto2-2.5.8.tar.bz2 | awk '{print$1;}'`" = '031a262e342fae43f724afe66787947ce1fb483277dfe5a8cf1fbe92c58e27b6' ]
 	then
-		tar xjf libgphoto2-2.5.7.tar.bz2
-		cd libgphoto2-2.5.7
+		tar xjf libgphoto2-2.5.8.tar.bz2
+		cd libgphoto2-2.5.8
 	else
-		echo "Unable to get libgphoto2-2.5.7"
+		echo "Unable to get libgphoto2-2.5.8"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
@@ -115,7 +115,7 @@ fi
 
 echo 
 echo "-----------------------------------------"
-echo "Compiling and installing libgphoto2 2.5.7"
+echo "Compiling and installing libgphoto2 2.5.8"
 echo "-----------------------------------------"
 echo
 
@@ -130,12 +130,12 @@ echo "Downloading gphoto2 2.5.6"
 echo "-------------------------"
 echo
 
-if wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.6/gphoto2-2.5.6.tar.gz
+if (wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.8/gphoto2-2.5.8.tar.gz) && [ "`sha256sum gphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = '1950542253d42fa9898028879b04fdbf09393c095f2c0273b062e897d10790ad' ]
 	then
-		tar xzvf gphoto2-2.5.6.tar.gz
-		cd gphoto2-2.5.6
+		tar xzvf gphoto2-2.5.8.tar.gz
+		cd gphoto2-2.5.8
 	else
-		echo "Unable to get gphoto2-2.5.6"
+		echo "Unable to get gphoto2-2.5.8"
 		echo "Cleaning and exiting..."
 		exit 1
 fi
