@@ -34,7 +34,7 @@ if [ "$(whoami)" != "root" ]; then
 	exit 1
 fi
 
-echo 
+echo
 echo "----------------"
 echo "Updating sources"
 echo "----------------"
@@ -42,7 +42,7 @@ echo
 
 apt-get update
 
-echo 
+echo
 echo "--------------------------"
 echo "Removing gphoto2 if exists"
 echo "--------------------------"
@@ -50,19 +50,15 @@ echo
 
 apt-get remove -y gphoto2
 
-echo 
+echo
 echo "-----------------------"
 echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-<<<<<<< HEAD
-apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev make bzip2
-=======
 apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
->>>>>>> scribblemaniac-gonzalo-patch-libusbx-1.0.17
 
-echo 
+echo
 echo "-------------------------"
 echo "Creating temporary folder"
 echo "-------------------------"
@@ -74,7 +70,7 @@ cd gphoto2-temp-folder
 echo "gphoto2-temp-folder created"
 
 
-echo 
+echo
 echo "-------------------------"
 echo "Downloading libusb 1.0.18"
 echo "-------------------------"
@@ -90,7 +86,7 @@ if (wget -q http://downloads.sourceforge.net/project/libusbx/releases/1.0.18/sou
 		exit 1
 fi
 
-echo 
+echo
 echo "--------------------------------------"
 echo "Compiling and installing libusb 1.0.18"
 echo "--------------------------------------"
@@ -101,7 +97,7 @@ make install
 cd ..
 
 
-echo 
+echo
 echo "----------------------------"
 echo "Downloading libgphoto2 2.5.8"
 echo "----------------------------"
@@ -118,7 +114,7 @@ if (wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.8/libg
 fi
 
 
-echo 
+echo
 echo "-----------------------------------------"
 echo "Compiling and installing libgphoto2 2.5.8"
 echo "-----------------------------------------"
@@ -129,7 +125,7 @@ make
 make install
 cd ..
 
-echo 
+echo
 echo "-------------------------"
 echo "Downloading gphoto2 2.5.8"
 echo "-------------------------"
@@ -146,10 +142,10 @@ if (wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.8/gphoto2
 fi
 
 
-echo 
+echo
 echo "--------------------------------"
 echo "Compiling and installing gphoto2"
-echo "--------------------------------" 
+echo "--------------------------------"
 echo
 
 ./configure
@@ -157,10 +153,10 @@ make
 make install
 cd ..
 
-echo 
+echo
 echo "-----------------"
 echo "Linking libraries"
-echo "-----------------"  
+echo "-----------------"
 echo
 
 ldconfig
@@ -199,7 +195,7 @@ then
 fi
 
 
-echo 
+echo
 echo "-------------------"
 echo "Removing temp files"
 echo "-------------------"
@@ -210,7 +206,7 @@ rm -r gphoto2-temp-folder
 
 
 
-echo 
+echo
 echo "--------------------"
 echo "Finished!! Enjoy it!"
 echo "--------------------"
