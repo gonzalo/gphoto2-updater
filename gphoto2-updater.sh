@@ -13,6 +13,7 @@
 # Updated for gphoto2 2.5.5 by Mihai Doarna
 # Updated for gphoto2 2.5.6 by Mathias Peter
 # Updated for gphoto2 2.5.7 by Sijawusz Pur Rahnama
+# Updated for gphoto2 2.5.8 by scribblemaniac
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -55,7 +56,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
+apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
 
 echo 
 echo "-------------------------"
@@ -126,7 +127,7 @@ cd ..
 
 echo 
 echo "-------------------------"
-echo "Downloading gphoto2 2.5.6"
+echo "Downloading gphoto2 2.5.8"
 echo "-------------------------"
 echo
 
