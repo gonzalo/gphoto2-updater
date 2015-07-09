@@ -4,7 +4,7 @@ gphoto2-updater
 Gphoto2 and libGphoto2 compiler and installer script
 http://github.com/gonzalo/gphoto2-updater
 
-Last version: 2.5.7
+Last version: 2.5.8
 
 This script is specifically created for Raspbian http://www.raspbian.org
 and Raspberry Pi http://www.raspberrypi.org but should work over any 
