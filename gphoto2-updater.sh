@@ -56,7 +56,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev
+apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev pkg-config
 
 echo
 echo "-------------------------"
