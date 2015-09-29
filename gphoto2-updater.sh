@@ -103,9 +103,9 @@ echo "Downloading libgphoto2 2.5.8"
 echo "----------------------------"
 echo
 
-if (wget -q http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.8/libgphoto2-2.5.8.tar.bz2) && [ "`sha256sum libgphoto2-2.5.8.tar.bz2 | awk '{print$1;}'`" = '031a262e342fae43f724afe66787947ce1fb483277dfe5a8cf1fbe92c58e27b6' ]
+if (wget -q https://github.com/gphoto/libgphoto2/archive/libgphoto2-2_5_8-release.tar.gz) && [ "`sha256sum libgphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = 'ec6178c90c6501d83c5753647e828b05afcc114019844581c3769ceb788e5b56' ]
 	then
-		tar xjf libgphoto2-2.5.8.tar.bz2
+		tar xzvf libgphoto2-2.5.8.tar.gz
 		cd libgphoto2-2.5.8
 	else
 		echo "Unable to get libgphoto2-2.5.8"
@@ -131,7 +131,7 @@ echo "Downloading gphoto2 2.5.8"
 echo "-------------------------"
 echo
 
-if (wget -q http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.8/gphoto2-2.5.8.tar.gz) && [ "`sha256sum gphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = '1950542253d42fa9898028879b04fdbf09393c095f2c0273b062e897d10790ad' ]
+if (wget -q https://github.com/gphoto/gphoto2/archive/gphoto2-2_5_8-release.tar.gz) && [ "`sha256sum gphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = '07ccc56a1c01fb70b024189c827caaba138d5315cd2f209e1567b8658ec74de4' ]
 	then
 		tar xzvf gphoto2-2.5.8.tar.gz
 		cd gphoto2-2.5.8
