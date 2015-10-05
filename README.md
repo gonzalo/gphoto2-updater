@@ -4,11 +4,12 @@ gphoto2-updater
 Gphoto2 and libGphoto2 compiler and installer script
 http://github.com/gonzalo/gphoto2-updater
 
-Last version: 2.5.8
+This script should be automatically updated since it use master branch of new
+gphoto2 git resository
 
 This script is specifically created for Raspbian http://www.raspbian.org
 and Raspberry Pi http://www.raspberrypi.org but should work over any 
-Debian-based distribution
+Debian-based distribution like Ubuntu.
 
 Created and mantained by Gonzalo Cao Cabeza de Vaca
 Please send any feedback or comments to gonzalo.cao(at)gmail.com
@@ -20,12 +21,6 @@ To download and compile last script version just be sure you are connected to th
 
 ```
 $ wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && sudo ./gphoto2-updater.sh
-```
-Since 2.5.5 version you can pick an specific libgphoto version:
-
-
-```
-$ wget https://github.com/gonzalo/gphoto2-updater/releases/download/[ligphoto-version]/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && sudo ./gphoto2-updater.sh
 ```
 
 Check releases

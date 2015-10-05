@@ -1,6 +1,6 @@
 #/bin/sh
 
-# Gphoto2 2.5.8 compiler and installer script v0.4.1
+# Gphoto2 compiler and installer script v0.5
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any 
@@ -14,6 +14,7 @@
 # Updated for gphoto2 2.5.6 by Mathias Peter
 # Updated for gphoto2 2.5.7 by Sijawusz Pur Rahnama
 # Updated for gphoto2 2.5.8 by scribblemaniac
+# Updated for new git repositories by Gonzalo Cao Cabeza de Vaca
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -56,7 +57,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev pkg-config
+apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev pkg-config git automake automake autoconf
 
 echo
 echo "-------------------------"
@@ -72,23 +73,23 @@ echo "gphoto2-temp-folder created"
 
 echo
 echo "-------------------------"
-echo "Downloading libusb 1.0.18"
+echo "Downloading libusb 1.0.20"
 echo "-------------------------"
 echo
 
-if (wget -q http://downloads.sourceforge.net/project/libusbx/releases/1.0.18/source/libusbx-1.0.18.tar.bz2) && [ "`sha256sum libusbx-1.0.18.tar.bz2 | awk '{print$1;}'`" = 'e16d1b10de69ddd0dcec31b8041b9b3ba4640d530e4851cc83268253b27d1ffb' ]
+if (wget -q http://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2)
 	then
-		tar xjvf libusbx-1.0.18.tar.bz2
-		cd libusbx-1.0.18/
+		tar jxf libusb-1.0.20.tar.bz2
+		cd libusb-1.0.20/
 	else
-		echo "Unable to get libusbx_1.0.18"
-		echo "Cleaning and exiting..."
+		echo "Unable to get libusb"
+		echo "Exiting..."
 		exit 1
 fi
 
 echo
 echo "--------------------------------------"
-echo "Compiling and installing libusb 1.0.18"
+echo "Compiling and installing libusb 1.0.20"
 echo "--------------------------------------"
 
 ./configure
@@ -98,46 +99,45 @@ cd ..
 
 
 echo
-echo "----------------------------"
-echo "Downloading libgphoto2 2.5.8"
-echo "----------------------------"
+echo "----------------------"
+echo "Downloading libgphoto2"
+echo "----------------------"
 echo
 
-if (wget -q https://github.com/gphoto/libgphoto2/archive/libgphoto2-2_5_8-release.tar.gz) && [ "`sha256sum libgphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = 'ec6178c90c6501d83c5753647e828b05afcc114019844581c3769ceb788e5b56' ]
-	then
-		tar xzvf libgphoto2-2.5.8.tar.gz
-		cd libgphoto2-2.5.8
+if (git clone https://github.com/gphoto/libgphoto2.git)
+    then
+        cd libgphoto2/
 	else
-		echo "Unable to get libgphoto2-2.5.8"
-		echo "Cleaning and exiting..."
+		echo "Unable to get libgphoto2"
+		echo "Exiting..."
 		exit 1
 fi
 
 
 echo
-echo "-----------------------------------------"
-echo "Compiling and installing libgphoto2 2.5.8"
-echo "-----------------------------------------"
+echo "-----------------------------------"
+echo "Compiling and installing libgphoto2"
+echo "-----------------------------------"
 echo
 
+autoreconf --install --symlink
 ./configure
 make
 make install
 cd ..
 
 echo
-echo "-------------------------"
-echo "Downloading gphoto2 2.5.8"
-echo "-------------------------"
+echo "-------------------"
+echo "Downloading gphoto2"
+echo "-------------------"
 echo
 
-if (wget -q https://github.com/gphoto/gphoto2/archive/gphoto2-2_5_8-release.tar.gz) && [ "`sha256sum gphoto2-2.5.8.tar.gz | awk '{print$1;}'`" = '07ccc56a1c01fb70b024189c827caaba138d5315cd2f209e1567b8658ec74de4' ]
-	then
-		tar xzvf gphoto2-2.5.8.tar.gz
-		cd gphoto2-2.5.8
+if (git clone https://github.com/gphoto/gphoto2.git)
+    then
+        cd gphoto2
 	else
-		echo "Unable to get gphoto2-2.5.8"
-		echo "Cleaning and exiting..."
+		echo "Unable to get gphoto2"
+		echo "Exiting..."
 		exit 1
 fi
 
@@ -148,6 +148,7 @@ echo "Compiling and installing gphoto2"
 echo "--------------------------------"
 echo
 
+autoreconf --install --symlink
 ./configure
 make
 make install
