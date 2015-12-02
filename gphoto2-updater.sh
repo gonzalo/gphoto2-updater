@@ -1,9 +1,9 @@
-#/bin/sh
+#!/bin/bash
 
 # Gphoto2 compiler and installer script v0.5
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
-# and Raspberry Pi http://www.raspberrypi.org but should work over any 
+# and Raspberry Pi http://www.raspberrypi.org but should work over any
 # Debian-based distribution
 
 # Created and mantained by Gonzalo Cao Cabeza de Vaca
@@ -14,7 +14,8 @@
 # Updated for gphoto2 2.5.6 by Mathias Peter
 # Updated for gphoto2 2.5.7 by Sijawusz Pur Rahnama
 # Updated for gphoto2 2.5.8 by scribblemaniac
-# Updated for new git repositories by Gonzalo Cao Cabeza de Vaca
+# Updated for gphoto2 2.5.9 at GitHub by Gonzalo Cao
+# Updated for last development release at GitHub by Gonzalo Cao
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,21 +36,52 @@ if [ "$(whoami)" != "root" ]; then
 	exit 1
 fi
 
+
+PS3='Please enter your choice: '
+options=("Install last development version"
+         "Install last stable release (2.5.9)"
+				 "Quit")
+
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Install last development version")
+						echo
+            echo "\"Install last development version\" selected"
+						echo
+						break
+            ;;
+        "Install last stable release (2.5.9)")
+						echo
+            echo "\"Install last stable release (2.5.9)\" selected"
+						echo
+						branch_libgphoto="--branch libgphoto2-2_5_9-release"
+						branch_gphoto="--branch gphoto2-2_5_9-release"
+						break
+            ;;
+        "Quit")
+            exit 0
+            ;;
+        *) echo invalid option;;
+    esac
+done
+
+
 echo
 echo "----------------"
 echo "Updating sources"
 echo "----------------"
 echo
 
-apt-get update
+apt-get update -qq
 
 echo
-echo "--------------------------"
-echo "Removing gphoto2 if exists"
-echo "--------------------------"
+echo "-----------------------------------------"
+echo "Removing gphoto2 and libgphoto2 if exists"
+echo "-----------------------------------------"
 echo
 
-apt-get remove -y gphoto2
+apt-get remove -y gphoto2 libgphoto2-port10
 
 echo
 echo "-----------------------"
@@ -104,7 +136,7 @@ echo "Downloading libgphoto2"
 echo "----------------------"
 echo
 
-if (git clone https://github.com/gphoto/libgphoto2.git)
+if (git clone $branch_libgphoto https://github.com/gphoto/libgphoto2.git)
     then
         cd libgphoto2/
 	else
@@ -132,8 +164,8 @@ echo "Downloading gphoto2"
 echo "-------------------"
 echo
 
-if (git clone https://github.com/gphoto/gphoto2.git)
-    then
+if (git clone  $branch_gphoto https://github.com/gphoto/gphoto2.git)
+  then
         cd gphoto2
 	else
 		echo "Unable to get gphoto2"
@@ -214,4 +246,3 @@ echo "--------------------"
 echo
 
 gphoto2 --version
-
