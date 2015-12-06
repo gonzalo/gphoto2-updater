@@ -89,7 +89,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev pkg-config git automake automake autoconf
+apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev libpopt-dev libudev-dev pkg-config git automake autoconf autopoint gettext libtool
 
 echo
 echo "-------------------------"
