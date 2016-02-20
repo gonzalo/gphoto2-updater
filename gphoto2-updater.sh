@@ -30,16 +30,56 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+latest_stable_version=2_5_9
+display_version=$(echo ${latest_stable_version} | tr '_' '.')
+branch_libgphoto=''
+branch_gphoto=''
 
 if [ "$(whoami)" != "root" ]; then
 	echo "Sorry, this script must be executed with sudo or as root"
 	exit 1
 fi
 
+usage()
+{
+cat << EOF
+usage: sudo $0 [-h|--help|-s|--stable|-d|--development]
 
+-h|--help: this help message
+-s|--stable: select the stable version: ${display_version}
+-d|--development: select the latest develoment version
+
+Note: An interactive menu is displayed if no parameter is given.
+EOF
+exit 1
+}
+
+parse_options()
+{
+if ! all_options=$(getopt -o hds -l help,development,stable -- "$@")
+then
+    usage
+fi
+eval set -- "$all_options"
+
+while true
+do
+    case "$1" in
+        -h|--help)          usage;;
+        -d|--development)   shift 1;;
+        -s|--stable)        branch_libgphoto="--branch libgphoto2-${latest_stable_version}-release"
+                            branch_gphoto="--branch gphoto2-${latest_stable_version}-release"
+                            shift 1;;
+        --)                 break ;;
+    esac
+done
+}
+
+menu()
+{
 PS3='Please enter your choice: '
 options=("Install last development version"
-         "Install last stable release (2.5.9)"
+         "Install last stable release (${display_version})"
 				 "Quit")
 
 select opt in "${options[@]}"
@@ -51,12 +91,12 @@ do
 						echo
 						break
             ;;
-        "Install last stable release (2.5.9)")
+        "Install last stable release (${display_version})")
 						echo
-            echo "\"Install last stable release (2.5.9)\" selected"
+            echo "\"Install last stable release (${display_version})\" selected"
 						echo
-						branch_libgphoto="--branch libgphoto2-2_5_9-release"
-						branch_gphoto="--branch gphoto2-2_5_9-release"
+						branch_libgphoto="--branch libgphoto2-${latest_stable_version}-release"
+						branch_gphoto="--branch gphoto2-${latest_stable_version}-release"
 						break
             ;;
         "Quit")
@@ -65,7 +105,16 @@ do
         *) echo invalid option;;
     esac
 done
+}
 
+# Display the menu if the script was called without any parameters
+# else try to parse the options
+if [ $# -eq 0 ]
+then
+    menu
+else
+    parse_options "$@"
+fi
 
 echo
 echo "----------------"
