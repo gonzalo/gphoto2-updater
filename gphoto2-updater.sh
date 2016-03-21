@@ -172,9 +172,9 @@ echo
 echo "--------------------------------------"
 echo "Compiling and installing libusb 1.0.20"
 echo "--------------------------------------"
-
+cores = $(nproc)
 ./configure
-make
+make -j "$cores"
 make install
 cd ..
 
@@ -203,7 +203,7 @@ echo
 
 autoreconf --install --symlink
 ./configure
-make
+make -j "$cores"
 make install
 cd ..
 
@@ -231,7 +231,7 @@ echo
 
 autoreconf --install --symlink
 ./configure
-make
+make -j "$cores"
 make install
 cd ..
 
