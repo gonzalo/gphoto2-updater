@@ -32,11 +32,11 @@ https://github.com/gonzalo/gphoto2-updater/releases
 
 Testing script using Docker containers
 ======================================
-In order to test pull requests without touching my OS, I'm using customized Docker images of ubuntu 14.04, debian 7 and debian 8 to automatically download and execute that new git branches. Here you can find a complete blog post explaining the thing (in spanish).
+In order to test pull requests without touching my OS, I'm using customized Docker images of ubuntu 14.04, debian 7 and debian 8 and raspbian to automatically download and execute that new git branches. Here you can find a complete blog post explaining the thing (in spanish).
 
 http://blog.zoogon.net/2016/03/usando-docker-para-crear-maquinas.html
 
-The main advantage is that everytime you will need it, you will have an updated and clean OS image just with git installed. After every execution the container remains clean without any change.
+The main advantage is that everytime you will need it, you will have an updated and clean OS image just with git installed. After every execution the container is destroyed so changes dissappear.
 
 The quick way to create a customized ubuntu 14.04 container:
 
@@ -48,14 +48,14 @@ FROM ubuntu:14.04
 RUN apt-get -y update && apt-get install -y git
 COPY ./test-script.sh /
 ```
-3.- Create a file named test-script.sh to store the script that docker builder will copy to container to download and execute the desired Git branch.
+3.- Create a file named test-script.sh to store the script that docker builder will copy to image to download and execute the desired Git branch.
 ```
 #!/usr/bin/env bash
 git clone $1
 cd gphoto2-updater
 ./gphoto2-updater.sh
 ```
-4.- Now build your customized container (it will remain stored in your local system)
+4.- Now build your customized image (it will remain stored in your local system)
 ```
 docker build -t ubuntu-14.04-git .
 ```
@@ -63,10 +63,10 @@ docker build -t ubuntu-14.04-git .
 
 Now you can test a Git branch everytime you need it over an clean ubuntu 14.04 container just running:
 ```
-docker run -ti ubuntu-14.04-git /test-script.sh [http-url-of-git-branch]
+docker run -rm -ti ubuntu-14.04-git /test-script.sh [http-url-of-git-branch]
 ```
 
-Docker will init a fresh instance on ubuntu 14.04, clone the git branch of the gphoto and run the gphoto2-updater script. After execution, the container is closed and changes will dissapear.
+Docker will init a fresh ubuntu 14.04 container, clone the git branch of the gphoto and run the gphoto2-updater script. After execution, the rm flag destroys the container.
 
 Similar actions can be done to generate customized debian 7 and debian 8 images. In fact I've created a script to test gphoto2-updater just as follows:
 ```
