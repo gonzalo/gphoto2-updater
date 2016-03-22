@@ -172,7 +172,8 @@ echo
 echo "--------------------------------------"
 echo "Compiling and installing libusb 1.0.20"
 echo "--------------------------------------"
-cores = $(nproc)
+
+cores=$(nproc)
 ./configure
 make -j "$cores"
 make install
