@@ -63,7 +63,7 @@ docker build -t ubuntu-14.04-git .
 
 Now you can test a Git branch everytime you need it over an clean ubuntu 14.04 container just running:
 ```
-docker run -rm -ti ubuntu-14.04-git /test-script.sh [http-url-of-git-branch]
+docker run --rm -ti ubuntu-14.04-git /test-script.sh [http-url-of-git-branch]
 ```
 
 Docker will init a fresh ubuntu 14.04 container, clone the git branch of the gphoto and run the gphoto2-updater script. After execution, the rm flag destroys the container.
