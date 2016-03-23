@@ -153,34 +153,6 @@ echo "gphoto2-temp-folder created"
 
 
 echo
-echo "-------------------------"
-echo "Downloading libusb 1.0.20"
-echo "-------------------------"
-echo
-
-if (wget -q http://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.20/libusb-1.0.20.tar.bz2)
-	then
-		tar jxf libusb-1.0.20.tar.bz2
-		cd libusb-1.0.20/
-	else
-		echo "Unable to get libusb"
-		echo "Exiting..."
-		exit 1
-fi
-
-echo
-echo "--------------------------------------"
-echo "Compiling and installing libusb 1.0.20"
-echo "--------------------------------------"
-
-cores=$(nproc)
-./configure
-make -j "$cores"
-make install
-cd ..
-
-
-echo
 echo "----------------------"
 echo "Downloading libgphoto2"
 echo "----------------------"
