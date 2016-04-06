@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Gphoto2 compiler and installer script v0.5
+# Gphoto2 compiler and installer script
 #
 # This script is specifically created for Raspbian http://www.raspbian.org
 # and Raspberry Pi http://www.raspberrypi.org but should work over any
@@ -16,6 +16,7 @@
 # Updated for gphoto2 2.5.8 by scribblemaniac
 # Updated for gphoto2 2.5.9 at GitHub by Gonzalo Cao
 # Updated for last development release at GitHub by Gonzalo Cao
+# Updated for gphoto2 2.5.10 by Gonzalo Cao
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,7 +31,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-latest_stable_version=2_5_9
+latest_stable_version=2_5_10
 display_version=$(echo ${latest_stable_version} | tr '_' '.')
 branch_libgphoto=''
 branch_gphoto=''
