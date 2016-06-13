@@ -12,7 +12,7 @@ This script was initially created for Raspbian http://www.raspbian.org
 and Raspberry Pi http://www.raspberrypi.org but it is also tested for Ubuntu
 14.04 and Debian Jessie and Wheezy.
 
-Created and mantained by Gonzalo Cao Cabeza de Vaca
+Created and maintained by Gonzalo Cao Cabeza de Vaca
 Please send any feedback or comments to gonzalo.cao(at)gmail.com
 
 Special thanks to @scribblemaniac for his support on this project.
