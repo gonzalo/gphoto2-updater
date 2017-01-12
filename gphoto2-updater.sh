@@ -35,6 +35,7 @@ latest_stable_version=2_5_10
 display_version=$(echo ${latest_stable_version} | tr '_' '.')
 branch_libgphoto=''
 branch_gphoto=''
+cores=$(nproc)
 
 if [ "$(whoami)" != "root" ]; then
 	echo "Sorry, this script must be executed with sudo or as root"
