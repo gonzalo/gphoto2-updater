@@ -6,7 +6,7 @@
 # and Raspberry Pi http://www.raspberrypi.org but should work over any
 # Debian-based distribution
 
-# Created and mantained by Gonzalo Cao Cabeza de Vaca
+# Created and maintained by Gonzalo Cao Cabeza de Vaca
 # Please send any feedback or comments to gonzalo.cao(at)gmail.com
 # Updated for gPhoto2 2.5.1.1 by Peter Hinson
 # Updated for gPhoto2 2.5.2 by Dmitri Popov
