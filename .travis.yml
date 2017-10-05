@@ -1,0 +1,15 @@
+language: c
+compiler: gcc
+dist: trusty
+
+env:
+  global:
+    - GPHOTO2_VERSION="2\\.5\\.14"
+    - LIBGPHOTO2_VERSION="2\\.5\\.14"
+
+install:
+  - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
+
+script:
+  - gphoto2 --version | grep "^gphoto2\\s\+$GPHOTO2_VERSION\\s"
+  - gphoto2 --version | grep "^libgphoto2\\s\+$LIBGPHOTO2_VERSION\\s"
