@@ -4,8 +4,8 @@ dist: trusty
 
 env:
   global:
-    - GPHOTO2_VERSION="2\\.5\\.14"
-    - LIBGPHOTO2_VERSION="2\\.5\\.14"
+    - GPHOTO2_VERSION="2\\.5\\.15"
+    - LIBGPHOTO2_VERSION="2\\.5\\.15"
 
 install:
   - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
