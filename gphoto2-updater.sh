@@ -225,7 +225,7 @@ echo "Generating udev rules, see http://www.gphoto.org/doc/manual/permissions-us
 echo "---------------------------------------------------------------------------------"
 echo
 
-udev_version=$(udevd --version)
+udev_version=$(udevadm --version)
 
 if   [ "$udev_version" -ge "201" ]
 then
