@@ -8,8 +8,8 @@ services:
 
 env:
   global:
-    - GPHOTO2_VERSION="{{ lookup('file', 'gphoto2_stable_version') }}"
-    - LIBGPHOTO2_VERSION="{{ lookup('file', 'libgphoto2_stable_version') }}"
+    - GPHOTO2_VERSION=$(cat gphoto2_stable_version)
+    - LIBGPHOTO2_VERSION=$(cat libgphoto2_stable_version)
 
     - INSTALL_CMD="apt-get -qq update && apt-get -y install wget ca-certificates && wget https://raw.githubusercontent.com/$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && ./gphoto2-updater.sh --stable"
     - GPHOTO2_TEST_CMD="gphoto2 --version | grep  '^gphoto2\\s\+$GPHOTO2_VERSION\\s'"
