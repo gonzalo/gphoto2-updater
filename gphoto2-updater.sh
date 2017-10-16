@@ -8,16 +8,6 @@
 
 # Created and mantained by Gonzalo Cao Cabeza de Vaca
 # Please send any feedback or comments to gonzalo.cao(at)gmail.com
-# Updated for gPhoto2 2.5.1.1 by Peter Hinson
-# Updated for gPhoto2 2.5.2 by Dmitri Popov
-# Updated for gphoto2 2.5.5 by Mihai Doarna
-# Updated for gphoto2 2.5.6 by Mathias Peter
-# Updated for gphoto2 2.5.7 by Sijawusz Pur Rahnama
-# Updated for gphoto2 2.5.8 by scribblemaniac
-# Updated for gphoto2 2.5.9 at GitHub by Gonzalo Cao
-# Updated for last development release at GitHub by Gonzalo Cao
-# Updated for gphoto2 2.5.10 by Gonzalo Cao
-# Updated for gphoto2 2.5.16
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,8 +22,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-latest_stable_libgphoto_version=2_5_16
-latest_stable_gphoto_version=2_5_16
+latest_stable_libgphoto_version=$(cat libgphoto2_stable_version)
+latest_stable_gphoto_version=$(cat gphoto2_stable_version)
 display_version=$(echo "libgphoto ${latest_stable_libgphoto_version}; gphoto ${latest_stable_gphoto_version}" | tr '_' '.')
 branch_libgphoto=''
 branch_gphoto=''
