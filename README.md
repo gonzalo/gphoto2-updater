@@ -5,7 +5,7 @@ Gphoto2 and libGphoto2 compiler and installer script
 http://github.com/gonzalo/gphoto2-updater
 
 This script allows to install last development and last
-stable (2.5.15) releases of gphoto2 and libgphoto2 based on
+stable (2.5.16) releases of gphoto2 and libgphoto2 based on
 [git repositories](https://github.com/gphoto/)
 
 This script was initially created for Raspbian http://www.raspbian.org
@@ -27,12 +27,9 @@ $ wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-
 ```
 Then select between stable and development version
 
-Check releases
-https://github.com/gonzalo/gphoto2-updater/releases
-
 Testing script using Travis CI
 ==============================
-Thanks to amazing work of @scribblemaniac new pulls are automatically tested using Travis CI over different OS. Take a look to the .travis.yml file. Currently testing compilation over Raspbian takes too much time to Travis CI, it should be included in the future. Anyway, successful compilation over Debian should guarantee that it should work over Raspbian.
+Thanks to amazing work of @scribblemaniac new pulls are automatically tested using Travis CI over different OS. Take a look to the .travis.yml file. Currently testing compilation for Raspbian takes too much time to Travis CI, it would be included in the future. Anyway, successful compilation on Debian should guarantee correct working on Raspbian.
 
 LICENSE AND DISCLAIMER
 ======================
