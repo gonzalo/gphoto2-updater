@@ -29,6 +29,10 @@ branch_libgphoto=''
 branch_gphoto=''
 cores=$(nproc)
 
+echo "libGphoto2 ->$latest_stable_libgphoto_version"
+echo "Gphoto2 ->$latest_stable_gphoto_version"
+exit
+
 if [ "$(whoami)" != "root" ]; then
 	echo "Sorry, this script must be executed with sudo or as root"
 	exit 1
