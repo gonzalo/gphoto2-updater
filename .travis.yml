@@ -21,7 +21,7 @@ jobs:
           - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
         script:
           - eval "$SET_ENV_VARIABLES"
-          - eval "$ECHO_ENV_VARIABLES"
+          - echo "$ECHO_ENV_VARIABLES"
           - eval "$GPHOTO2_TEST_CMD"
           - eval "$LIBGPHOTO2_TEST_CMD"
       - stage: Ubuntu 14.04
