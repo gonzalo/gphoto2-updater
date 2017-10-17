@@ -8,12 +8,14 @@ services:
 
 env:
   global:
-    - GPHOTO2_VERSION="cat gphoto2_stable_version"
-    - LIBGPHOTO2_VERSION="cat libgphoto2_stable_version"
+    - GPHOTO2_VERSION='2\.5\.15'
+    - LIBGPHOTO2_VERSION='2\.5\.16'
 
     - INSTALL_CMD="apt-get -qq update && apt-get -y install wget ca-certificates && wget https://raw.githubusercontent.com/$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && ./gphoto2-updater.sh --stable"
-    - GPHOTO2_TEST_CMD="gphoto2 --version | grep '^gphoto2\\s\+$GPHOTO2_VERSION\\s'"
-    - LIBGPHOTO2_TEST_CMD="gphoto2 --version | grep '^libgphoto2\\s\+$LIBGPHOTO2_VERSION\\s'"
+    - SET_ENV_VARIABLES="export GPHOTO2_VERSION=$(cat gphoto2_stable_version) && export LIBGPHOTO2_VERSION=$(cat libgphoto2_stable_version)"
+    - ECHO_ENV_VARIABLES="echo $LIBGPHOTO2_VERSION && echo $GPHOTO2_VERSION"
+    - GPHOTO2_TEST_CMD="gphoto2 --version | grep '^gphoto2\\s\$GPHOTO2_VERSION\\s'"
+    - LIBGPHOTO2_TEST_CMD="gphoto2 --version | grep '^libgphoto2\\s\$LIBGPHOTO2_VERSION\\s'"
 
 jobs:
   include:
@@ -21,6 +23,8 @@ jobs:
         install:
           - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
         script:
+          - eval "$SET_ENV_VARIABLES"
+          - eval "$ECHO_ENV_VARIABLES"
           - eval "$GPHOTO2_TEST_CMD"
           - eval "$LIBGPHOTO2_TEST_CMD"
       - stage: Ubuntu 14.04
