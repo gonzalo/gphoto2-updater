@@ -5,7 +5,7 @@ Gphoto2 and libGphoto2 compiler and installer script
 http://github.com/gonzalo/gphoto2-updater
 
 This script allows to install last development and last
-stable (2.5.15) releases of gphoto2 and libgphoto2 based on
+stable (2.5.18) releases of gphoto2 and libgphoto2 based on
 [git repositories](https://github.com/gphoto/)
 
 This script was initially created for Raspbian http://www.raspbian.org
