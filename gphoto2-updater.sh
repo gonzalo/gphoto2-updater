@@ -17,6 +17,7 @@
 # Updated for gphoto2 2.5.9 at GitHub by Gonzalo Cao
 # Updated for last development release at GitHub by Gonzalo Cao
 # Updated for gphoto2 2.5.10 by Gonzalo Cao
+# Updated for libgphoto2 2.5.21 by Edhyx
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,7 +32,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-latest_stable_libgphoto_version=2_5_20
+latest_stable_libgphoto_version=2_5_21
 latest_stable_gphoto_version=2_5_20
 display_version=$(echo "libgphoto ${latest_stable_libgphoto_version}; gphoto ${latest_stable_gphoto_version}" | tr '_' '.')
 branch_libgphoto=''
