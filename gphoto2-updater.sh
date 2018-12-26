@@ -133,7 +133,7 @@ echo "Removing gphoto2 and libgphoto2 if exists"
 echo "-----------------------------------------"
 echo
 
-apt-get remove -y gphoto2 libgphoto2*
+apt-get remove gphoto2 libgphoto2*
 
 echo
 echo "-----------------------"
