@@ -11,12 +11,18 @@ env:
     - GPHOTO2_VERSION='2\.5\.20'
     - LIBGPHOTO2_VERSION='2\.5\.22'
 
-    - INSTALL_CMD="apt-get --allow-unauthenticated -qq update && apt-get -y install wget ca-certificates && wget https://raw.githubusercontent.com/$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && ./gphoto2-updater.sh --stable"
+    - INSTALL_CMD="apt-get -qq update && apt-get -y install wget ca-certificates && wget https://raw.githubusercontent.com/$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && ./gphoto2-updater.sh --stable"
     - GPHOTO2_TEST_CMD="gphoto2 --version | grep '^gphoto2\\s\+$GPHOTO2_VERSION\\s'"
     - LIBGPHOTO2_TEST_CMD="gphoto2 --version | grep '^libgphoto2\\s\+$LIBGPHOTO2_VERSION\\s'"
 
 jobs:
   include:
+      - stage: Ubuntu 18.04
+        install:
+          - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
+        script:
+          - eval "$GPHOTO2_TEST_CMD"
+          - eval "$LIBGPHOTO2_TEST_CMD" 
       - stage: Ubuntu 16.04
         install:
           - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
