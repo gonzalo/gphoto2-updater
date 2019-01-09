@@ -10,7 +10,7 @@ stable releases of gphoto2 and libgphoto2 based on
 
 This script was initially created for Raspbian http://www.raspbian.org
 and Raspberry Pi http://www.raspberrypi.org but it is also tested for: Ubuntu
-14.04, 16.04 and Debian 7, 8 and 9.
+14.04, 16.04, 18.04 and Debian 7, 8 and 9.
 
 Created and maintained by Gonzalo Cao Cabeza de Vaca
 Please send any feedback or comments to gonzalo.cao(at)gmail.com
