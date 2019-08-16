@@ -170,7 +170,7 @@ echo "-----------------------------------"
 echo
 
 autoreconf --install --symlink
-./configure
+./configure --libdir= /usr/lib/arm-linux-gnueabihf/
 make -j "$cores"
 make install
 cd ..
@@ -198,7 +198,7 @@ echo "--------------------------------"
 echo
 
 autoreconf --install --symlink
-./configure
+./configure --libdir= /usr/lib/arm-linux-gnueabihf/
 make -j "$cores"
 make install
 cd ..
