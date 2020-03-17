@@ -1,4 +1,4 @@
-gphoto2-updater ![Build status](https://travis-ci.org/gonzalo/gphoto2-updater.svg?branch=master)
+gphoto2-updater [![Build status](https://travis-ci.org/gonzalo/gphoto2-updater.svg?branch=master)](https://travis-ci.org/gonzalo/gphoto2-updater)
 ===============
 
 Gphoto2 and libGphoto2 compiler and installer script

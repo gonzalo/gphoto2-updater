@@ -1,0 +1,9 @@
+GPHOTO2_VERSION='2\.5\.23'
+LIBGPHOTO2_VERSION='2\.5\.24'
+INSTALL_CMD="apt-get -qq update && \
+    apt-get -y install wget ca-certificates && \
+    chmod +x /usr/local/bin/gphoto2-updater.sh && \
+    /usr/local/bin/gphoto2-updater.sh --stable"
+GPHOTO2_TEST_CMD="gphoto2 --version | grep '^gphoto2\s\+$GPHOTO2_VERSION\s'"
+LIBGPHOTO2_TEST_CMD="gphoto2 --version | grep '^libgphoto2\\s\+$LIBGPHOTO2_VERSION\\s'"
+# vim: set ft=bash:

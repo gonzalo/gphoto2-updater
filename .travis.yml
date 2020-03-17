@@ -1,43 +1,36 @@
 language: c
 compiler: gcc
+os: linux
 dist: trusty
-sudo: required
 
 services:
   - docker
 
-env:
-  global:
-    - GPHOTO2_VERSION='2\.5\.23'
-    - LIBGPHOTO2_VERSION='2\.5\.23'
-
-    - INSTALL_CMD="apt-get -qq update && apt-get -y install wget ca-certificates && wget https://raw.githubusercontent.com/$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && ./gphoto2-updater.sh --stable"
-    - GPHOTO2_TEST_CMD="gphoto2 --version | grep '^gphoto2\\s\+$GPHOTO2_VERSION\\s'"
-    - LIBGPHOTO2_TEST_CMD="gphoto2 --version | grep '^libgphoto2\\s\+$LIBGPHOTO2_VERSION\\s'"
+_shared: &shared
+  before_install: docker pull $IMAGE
+  script:
+    - source $TRAVIS_BUILD_DIR/.travis-vars
+    - docker run -u root -v $PWD/gphoto2-updater.sh:/usr/local/bin/gphoto2-updater.sh $IMAGE /bin/bash -c "set -ux; $INSTALL_CMD && $GPHOTO2_TEST_CMD && $LIBGPHOTO2_TEST_CMD"
 
 jobs:
   include:
-      - stage: Ubuntu 18.04
-        install:
-          - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
-        script:
-          - eval "$GPHOTO2_TEST_CMD"
-          - eval "$LIBGPHOTO2_TEST_CMD"
-      - stage: Ubuntu 16.04
-        install:
-          - sudo $TRAVIS_BUILD_DIR/gphoto2-updater.sh --stable
-        script:
-          - eval "$GPHOTO2_TEST_CMD"
-          - eval "$LIBGPHOTO2_TEST_CMD"
-      - stage: Ubuntu 14.04
-        before_install: docker pull ubuntu:14.04
-        script: docker run -u root ubuntu:14.04 /bin/bash -c "$INSTALL_CMD && $GPHOTO2_TEST_CMD && $LIBGPHOTO2_TEST_CMD"
-      - stage: Debian 7
-        before_install: docker pull debian:7
-        script: docker run -u root debian:7 /bin/bash -c "$INSTALL_CMD && $GPHOTO2_TEST_CMD && $LIBGPHOTO2_TEST_CMD"
-      - stage: Debian 8
-        before_install: docker pull debian:8
-        script: docker run -u root debian:8 /bin/bash -c "$INSTALL_CMD && $GPHOTO2_TEST_CMD && $LIBGPHOTO2_TEST_CMD"
-      - stage: Debian 9
-        before_install: docker pull debian:9
-        script: docker run -u root debian:9 /bin/bash -c "$INSTALL_CMD && $GPHOTO2_TEST_CMD && $LIBGPHOTO2_TEST_CMD"
+      - name: Ubuntu 18.04
+        env:
+          - IMAGE="ubuntu:18.04"
+        <<: *shared 
+      - name: Ubuntu 16.04
+        env:
+          - IMAGE="ubuntu:16.04"
+        <<: *shared 
+      - name: Ubuntu 14.04
+        env:
+          - IMAGE="ubuntu:14.04"
+        <<: *shared 
+      - name: Debian 8
+        env:
+          - IMAGE="debian:8"
+        <<: *shared 
+      - name: Debian 9
+        env:
+          - IMAGE="debian:9"
+        <<: *shared 
