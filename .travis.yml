@@ -14,6 +14,10 @@ _shared: &shared
 
 jobs:
   include:
+      - name: Ubuntu 20.04
+        env:
+          - IMAGE="ubuntu:18.04"
+        <<: *shared   
       - name: Ubuntu 18.04
         env:
           - IMAGE="ubuntu:18.04"
@@ -22,10 +26,6 @@ jobs:
         env:
           - IMAGE="ubuntu:16.04"
         <<: *shared 
-      - name: Ubuntu 14.04
-        env:
-          - IMAGE="ubuntu:14.04"
-        <<: *shared 
       - name: Debian 8
         env:
           - IMAGE="debian:8"
@@ -33,4 +33,8 @@ jobs:
       - name: Debian 9
         env:
           - IMAGE="debian:9"
+        <<: *shared 
+      - name: Debian 9
+        env:
+          - IMAGE="debian:10"
         <<: *shared 
