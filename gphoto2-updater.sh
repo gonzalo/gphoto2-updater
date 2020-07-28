@@ -133,7 +133,7 @@ echo "Installing dependencies"
 echo "-----------------------"
 echo
 
-apt-get install -y build-essential libltdl-dev libusb-dev libexif-dev udev libpopt-dev libudev-dev pkg-config git automake autoconf autopoint gettext libtool wget
+apt-get install -y build-essential libltdl-dev libusb-1.0-0-dev libexif-dev udev libpopt-dev libudev-dev pkg-config git automake autoconf autopoint gettext libtool wget
 
 echo
 echo "-------------------------"
