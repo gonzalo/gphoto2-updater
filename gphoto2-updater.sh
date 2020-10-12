@@ -31,8 +31,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-latest_stable_libgphoto_version=2_5_25
-latest_stable_gphoto_version=2_5_23
+latest_stable_libgphoto_version=2_5_26
+latest_stable_gphoto_version=2_5_26
 display_version=$(echo "libgphoto ${latest_stable_libgphoto_version}; gphoto ${latest_stable_gphoto_version}" | tr '_' '.')
 branch_libgphoto=''
 branch_gphoto=''
