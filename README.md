@@ -30,6 +30,14 @@ Then select between stable and development version
 Check releases
 https://github.com/gonzalo/gphoto2-updater/releases
 
+### After installation you still see a previous version of gphoto2 and libgphoto2
+You probably have another of libgphoto2 installed from some other source, most likely apt. The script does not remove such packages because of the issues in #57. One thing you can do is run: ldconfig -p | grep libgphoto2 and share the result here. This will show you the locations where libgphoto2 is installed and accessible. It may be that all you need to do is change the ordering of the paths in your LD_LIBRARY_PATH environment variable or move/symlink some files.
+
+Try to remove previous versions with
+```
+$ sudo apt-get remove gphoto2 libgphoto2-6 libgphoto2-dev libgphoto2-l10n libgphoto2-port12
+```
+
 Testing script using Travis CI
 ==============================
 Thanks to amazing work of @scribblemaniac new pulls are automatically tested using Travis CI over different OS. Take a look to the .travis.yml file. Currently testing compilation over Raspbian takes too much time to Travis CI, it should be included in the future. Anyway, successful compilation over Debian should guarantee that it should work over Raspbian.
