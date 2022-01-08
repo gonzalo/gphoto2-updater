@@ -1,0 +1,40 @@
+name: test-build
+on: [push, pull_request]
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - name: Ubuntu 20.04
+          os: ubuntu-latest
+          container: ubuntu:20.04
+
+    name: ${{matrix.name}}
+    runs-on: ${{matrix.os}}
+    container: ${{matrix.container}}
+
+    steps:
+      - name: Install git
+        # Needed for the docker containers
+        run: |
+          apt-get update -yq
+          apt-get -yq install software-properties-common
+          apt-add-repository -y ppa:git-core/ppa
+          apt-get update -yq
+          apt-get install -yq --no-install-suggests --no-install-recommends git
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v2
+      - name: Setup environment
+        run: |
+          apt-get -qq update
+          apt-get -y install wget ca-certificates
+          chmod +x gphoto2-updater.sh
+          . ./.env
+      - name: Build
+        run: ./gphoto2-updater.sh --stable
+      - name: Check version
+        run: |
+          gphoto2 --version
+          gphoto2 --version | grep -E "^gphoto2\s+$(echo $LATEST_STABLE_GPHOTO_VERSION | sed 's/_/./g')\s"
+          gphoto2 --version | grep -E "^libgphoto2\s+$(echo $LATEST_STABLE_LIBGPHOTO_VERSION | sed 's/_/./g')\s"
