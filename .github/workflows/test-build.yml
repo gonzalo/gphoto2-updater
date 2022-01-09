@@ -6,23 +6,29 @@ jobs:
       fail-fast: false
       matrix:
         include:
+        - name: Ubuntu Latest
+          container: ubuntu:rolling
         - name: Ubuntu 20.04
-          os: ubuntu-latest
           container: ubuntu:20.04
+        - name: Ubuntu 18.04
+          container: ubuntu:18.04
+        - name: Debian Bullseye
+          container: debian:11
+        - name: Debian Buster
+          container: debian:10
+        - name: Debian Strech
+          container: debian:9
 
     name: ${{matrix.name}}
-    runs-on: ${{matrix.os}}
+    runs-on: ubuntu-latest
     container: ${{matrix.container}}
 
     steps:
-      - name: Install git
+      - name: Install dependencies
         # Needed for the docker containers
         run: |
           apt-get update -yq
-          apt-get -yq install software-properties-common
-          apt-add-repository -y ppa:git-core/ppa
-          apt-get update -yq
-          apt-get install -yq --no-install-suggests --no-install-recommends git
+          apt-get -yq install software-properties-common git
       - name: Checkout GitHub repository
         uses: actions/checkout@v2
       - name: Setup environment
