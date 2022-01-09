@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     container: ${{matrix.container}}
 
+    env:
+      DEBIAN_FRONTEND: noninteractive # Needed to prevent tzdata from blocking apt-get for some distro releases
+
     steps:
       - name: Install dependencies
         # Needed for the docker containers
