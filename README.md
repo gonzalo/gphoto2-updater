@@ -1,4 +1,4 @@
-gphoto2-updater [![Build status](https://travis-ci.org/gonzalo/gphoto2-updater.svg?branch=master)](https://travis-ci.org/gonzalo/gphoto2-updater)
+gphoto2-updater ![Build status](https://github.com/gonzalo/gphoto2-updater/actions/workflows/test-build.yml/badge.svg)
 ===============
 
 Gphoto2 and libGphoto2 compiler and installer script
@@ -9,8 +9,13 @@ stable releases of gphoto2 and libgphoto2 based on
 [git repositories](https://github.com/gphoto/)
 
 This script was initially created for Raspbian http://www.raspbian.org
-and Raspberry Pi http://www.raspberrypi.org but it is also tested for: Ubuntu
-14.04, 16.04, 18.04 and Debian 7, 8 and 9.
+and Raspberry Pi http://www.raspberrypi.org currently tested for:
+ - Ubuntu Latest
+ - Ubuntu 20.04
+ - Ubuntu 18.04
+ - Debian Bullseye (11)
+ - Debian Buster (10)
+ - Debian Strech (9)
 
 Created and maintained by Gonzalo Cao Cabeza de Vaca
 Please send any feedback or comments to gonzalo.cao(at)gmail.com
@@ -38,9 +43,9 @@ Try to remove previous versions with
 $ sudo apt-get remove gphoto2 libgphoto2-6 libgphoto2-dev libgphoto2-l10n libgphoto2-port12
 ```
 
-Testing script using Travis CI
-==============================
-Thanks to amazing work of @scribblemaniac new pulls are automatically tested using Travis CI over different OS. Take a look to the .travis.yml file. Currently testing compilation over Raspbian takes too much time to Travis CI, it should be included in the future. Anyway, successful compilation over Debian should guarantee that it should work over Raspbian.
+Testing script using GitHub Actions
+===================================
+Thanks to amazing work of @scribblemaniac new pulls are automatically tested using GitHub Actions. Successful compilation over Debian should guarantee that it should work over Raspbian.
 
 LICENSE AND DISCLAIMER
 ======================
