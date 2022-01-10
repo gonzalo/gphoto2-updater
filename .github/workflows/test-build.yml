@@ -1,0 +1,49 @@
+name: test-build
+on: [push, pull_request]
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - name: Ubuntu Latest
+          container: ubuntu:rolling
+        - name: Ubuntu 20.04
+          container: ubuntu:20.04
+        - name: Ubuntu 18.04
+          container: ubuntu:18.04
+        - name: Debian Bullseye
+          container: debian:11
+        - name: Debian Buster
+          container: debian:10
+        - name: Debian Strech
+          container: debian:9
+
+    name: ${{matrix.name}}
+    runs-on: ubuntu-latest
+    container: ${{matrix.container}}
+
+    env:
+      DEBIAN_FRONTEND: noninteractive # Needed to prevent tzdata from blocking apt-get for some distro releases
+
+    steps:
+      - name: Install dependencies
+        # Needed for the docker containers
+        run: |
+          apt-get update -yq
+          apt-get -yq install software-properties-common git
+      - name: Checkout GitHub repository
+        uses: actions/checkout@v2
+      - name: Setup environment
+        run: |
+          apt-get -qq update
+          apt-get -y install wget ca-certificates
+          chmod +x gphoto2-updater.sh
+          . ./.env
+      - name: Build
+        run: ./gphoto2-updater.sh --stable
+      - name: Check version
+        run: |
+          gphoto2 --version
+          gphoto2 --version | grep -E "^gphoto2\s+$(echo $LATEST_STABLE_GPHOTO_VERSION | sed 's/_/./g')\s"
+          gphoto2 --version | grep -E "^libgphoto2\s+$(echo $LATEST_STABLE_LIBGPHOTO_VERSION | sed 's/_/./g')\s"

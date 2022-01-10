@@ -31,9 +31,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-latest_stable_libgphoto_version=2_5_27
-latest_stable_gphoto_version=2_5_27
-display_version=$(echo "libgphoto ${latest_stable_libgphoto_version}; gphoto ${latest_stable_gphoto_version}" | tr '_' '.')
+. ./.env
+display_version=$(echo "libgphoto ${LATEST_STABLE_LIBGPHOTO_VERSION}; gphoto ${LATEST_STABLE_GPHOTO_VERSION}" | tr '_' '.')
 branch_libgphoto=''
 branch_gphoto=''
 cores=$(nproc)
@@ -70,8 +69,8 @@ do
     case "$1" in
         -h|--help)          usage;;
         -d|--development)   shift 1;;
-        -s|--stable)        branch_libgphoto="--branch libgphoto2-${latest_stable_libgphoto_version}-release"
-                            branch_gphoto="--branch gphoto2-${latest_stable_gphoto_version}-release"
+        -s|--stable)        branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
+                            branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
                             shift 1;;
         --)                 break ;;
     esac
@@ -98,8 +97,8 @@ do
 						echo
             echo "\"Install last stable release (${display_version})\" selected"
 						echo
-						branch_libgphoto="--branch libgphoto2-${latest_stable_libgphoto_version}-release"
-						branch_gphoto="--branch gphoto2-${latest_stable_gphoto_version}-release"
+						branch_libgphoto="--branch libgphoto2-${LATEST_STABLE_LIBGPHOTO_VERSION}-release"
+						branch_gphoto="--branch gphoto2-${LATEST_STABLE_GPHOTO_VERSION}-release"
 						break
             ;;
         "Quit")
