@@ -25,21 +25,16 @@ jobs:
     runs-on: ubuntu-latest
     container: ${{matrix.container}}
 
-    env:
-      DEBIAN_FRONTEND: noninteractive # Needed to prevent tzdata from blocking apt-get for some distro releases
-
     steps:
       - name: Install dependencies
         # Needed for the docker containers
         run: |
           apt-get update -yq
-          apt-get -yq install software-properties-common git
+          DEBIAN_FRONTEND=noninteractive apt-get -yq install software-properties-common git wget ca-certificates
       - name: Checkout GitHub repository
         uses: actions/checkout@v2
       - name: Setup environment
         run: |
-          apt-get -qq update
-          apt-get -y install wget ca-certificates
           chmod +x gphoto2-updater.sh
           . ./.env
       - name: Build
