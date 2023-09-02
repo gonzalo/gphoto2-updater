@@ -8,16 +8,18 @@ jobs:
         include:
         - name: Ubuntu Latest
           container: ubuntu:rolling
+        - name: Ubuntu 22.04
+          container: ubuntu:22.04
         - name: Ubuntu 20.04
           container: ubuntu:20.04
         - name: Ubuntu 18.04
           container: ubuntu:18.04
+        - name: Debian Bookworm
+          container: debian:12
         - name: Debian Bullseye
           container: debian:11
         - name: Debian Buster
           container: debian:10
-        - name: Debian Strech
-          container: debian:9
 
     name: ${{matrix.name}}
     runs-on: ubuntu-latest
